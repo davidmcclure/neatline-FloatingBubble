@@ -5,7 +5,7 @@
  * Floating bubble events.
  *
  * @package     omeka
- * @subpackage  neatline-presenter-FloatingBubble
+ * @subpackage  neatline-FloatingBubble
  * @copyright   2012 Rector and Board of Visitors, University of Virginia
  * @license     http://www.apache.org/licenses/LICENSE-2.0.html
  */
@@ -22,9 +22,8 @@ Neatline.module('Presenter.FloatingBubble', function(
   var show = function(model) {
     FloatingBubble.__view.show(model);
   };
-
   Neatline.commands.addHandler(
-    'presenter:SmallBubble:show', show
+    'PRESENTER:FloatingBubble:show', show
   );
 
 
@@ -34,33 +33,32 @@ Neatline.module('Presenter.FloatingBubble', function(
   var hide = function() {
     FloatingBubble.__view.hide();
   };
-
   Neatline.commands.addHandler(
-    'presenter:SmallBubble:hide', hide
+    'PRESENTER:FloatingBubble:hide', hide
   );
 
 
   /**
-   * Freeze the bubble.
+   * Select the bubble.
+   *
+   * @param {Object} model: The record model.
    */
-  var select = function() {
-    FloatingBubble.__view.select();
+  var select = function(model) {
+    FloatingBubble.__view.select(model);
   };
-
   Neatline.commands.addHandler(
-    'presenter:SmallBubble:select', select
+    'PRESENTER:FloatingBubble:select', select
   );
 
 
   /**
-   * Unfreeze and hide the bubble.
+   * Unselect the bubble.
    */
   var unselect = function() {
     FloatingBubble.__view.unselect();
   };
-
   Neatline.commands.addHandler(
-    'presenter:SmallBubble:unselect', unselect
+    'PRESENTER:FloatingBubble:unselect', unselect
   );
 
 
@@ -68,11 +66,10 @@ Neatline.module('Presenter.FloatingBubble', function(
    * Activate the bubble.
    */
   var activate = function() {
-    SmallBubble.__view.activate();
+    FloatingBubble.__view.activate();
   };
-
   Neatline.vent.on(
-    'presenter:activate', activate
+    'PRESENTER:activate', activate
   );
 
 
@@ -80,12 +77,11 @@ Neatline.module('Presenter.FloatingBubble', function(
    * Deactivate and close the bubble.
    */
   var deactivate = function() {
-    SmallBubble.__view.deactivate();
-    SmallBubble.__view.unselect();
+    FloatingBubble.__view.deactivate();
+    FloatingBubble.__view.unselect();
   };
-
   Neatline.vent.on(
-    'presenter:deactivate', deactivate
+    'PRESENTER:deactivate', deactivate
   );
 
 

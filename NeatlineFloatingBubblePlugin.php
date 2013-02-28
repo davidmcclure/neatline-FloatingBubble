@@ -6,7 +6,7 @@
  * Plugin manager class.
  *
  * @package     omeka
- * @subpackage  neatline-presenter-FloatingBubble
+ * @subpackage  neatline-FloatingBubble
  * @copyright   2012 Rector and Board of Visitors, University of Virginia
  * @license     http://www.apache.org/licenses/LICENSE-2.0.html
  */
