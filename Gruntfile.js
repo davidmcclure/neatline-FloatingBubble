@@ -12,7 +12,6 @@
 
 module.exports = function(grunt) {
 
-  // Load tasks.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
@@ -82,10 +81,7 @@ module.exports = function(grunt) {
 
   });
 
-  // Run tests by default.
   grunt.registerTask('default', 'jasmine');
-
-  // Build the plugin.
   grunt.registerTask('build', ['uglify', 'symlink']);
 
 };
