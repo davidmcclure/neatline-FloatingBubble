@@ -12,8 +12,7 @@
  */
 
 
-class NeatlinePresenterFloatingBubblePlugin
-    extends Omeka_Plugin_AbstractPlugin
+class NeatlineFloatingBubblePlugin extends Omeka_Plugin_AbstractPlugin
 {
 
 

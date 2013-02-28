@@ -12,8 +12,13 @@
  */
 
 
-if (!defined('NL_FLOAT_DIR')) define('NL_FLOAT_DIR', dirname(__FILE__));
-require_once NL_FLOAT_DIR . '/NeatlinePresenterFloatingBubblePlugin.php';
+if (!defined('NL_FLOATING_BUBBLE_DIR')) {
+    define('NL_FLOATING_BUBBLE_DIR', dirname(__FILE__));
+}
 
-$floatingBubble = new NeatlinePresenterFloatingBubblePlugin();
+require_once(
+    NL_FLOATING_BUBBLE_DIR . '/NeatlineFloatingBubblePlugin.php'
+);
+
+$floatingBubble = new NeatlineFloatingBubblePlugin();
 $floatingBubble->setUp();
