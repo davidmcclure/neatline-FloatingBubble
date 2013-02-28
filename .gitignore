@@ -1,0 +1,10 @@
+.DS_Store
+node_modules
+components
+_SpecRunner.html
+
+views/shared/javascripts/payloads
+
+tests/jasmine/fixtures
+tests/jasmine/helpers
+tests/jasmine/payloads
