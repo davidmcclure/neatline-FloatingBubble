@@ -15,6 +15,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-symbolic-link');
@@ -27,7 +28,7 @@ module.exports = function(grunt) {
       },
       bubble: {
         src: './views/shared/javascripts/FloatingBubble/*.js',
-        dest: './views/shared/javascripts/payloads/FloatingBubble.js',
+        dest: './views/shared/javascripts/payloads/bubble.js',
         separator: ';'
       }
     },
@@ -43,9 +44,18 @@ module.exports = function(grunt) {
       }
     },
 
+    stylus: {
+      compile: {
+        files: {
+          './views/shared/css/payloads/bubble.css':
+            './views/shared/css/stylus/bubble.styl'
+        }
+      }
+    },
+
     watch: {
       files: ['<%= uglify.bubble.src %>'],
-      tasks: ['uglify']
+      tasks: ['concat', 'stylus']
     },
 
     jasmine: {
@@ -97,6 +107,8 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', 'jasmine');
-  grunt.registerTask('build', ['uglify', 'symlink']);
+  grunt.registerTask('build', ['symlink']);
+  grunt.registerTask('compile:concat', ['concat', 'stylus']);
+  grunt.registerTask('compile:min', ['uglify', 'stylus']);
 
 };

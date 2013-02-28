@@ -18,7 +18,9 @@ class NeatlineFloatingBubblePlugin extends Omeka_Plugin_AbstractPlugin
 
     protected $_hooks = array(
         'neatline_public_js',
+        'neatline_public_css',
         'neatline_editor_js',
+        'neatline_editor_css',
         'neatline_templates'
     );
 
@@ -29,20 +31,38 @@ class NeatlineFloatingBubblePlugin extends Omeka_Plugin_AbstractPlugin
 
 
     /**
-     * Add presenter to public payload.
+     * Add presenter to public .js payload.
      */
     public function hookNeatlinePublicJs()
     {
-        queue_js_file('payloads/FloatingBubble');
+        queue_js_file('payloads/bubble');
     }
 
 
     /**
-     * Add presenter to editor payload.
+     * Add presenter to public .css payload.
+     */
+    public function hookNeatlinePublicCss()
+    {
+        queue_css_file('payloads/bubble');
+    }
+
+
+    /**
+     * Add presenter to editor .js payload.
      */
     public function hookNeatlineEditorJs()
     {
-        queue_js_file('payloads/FloatingBubble');
+        queue_js_file('payloads/bubble');
+    }
+
+
+    /**
+     * Add presenter to editor .css payload.
+     */
+    public function hookNeatlineEditorCss()
+    {
+        queue_css_file('payloads/bubble');
     }
 
 
@@ -58,8 +78,8 @@ class NeatlineFloatingBubblePlugin extends Omeka_Plugin_AbstractPlugin
     /**
      * Register the presenter.
      *
-     * @param array $presenters Array of presenter name => ids.
-     * @return array The modified array.
+     * @param array $presenters Presenters, NAME => ID.
+     * @return array The array, with FloatingBubble.
      */
     public function filterNeatlinePresenters($presenters)
     {

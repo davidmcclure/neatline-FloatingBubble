@@ -199,7 +199,7 @@ Neatline.module('Presenter.FloatingBubble', function(
      * Unbind move and leave listeners.
      */
     unbind: function() {
-      var map = Neatline.request('map:getMap');
+      var map = Neatline.request('MAP:getMap');
       map.events.unregister('mousemove', null, this.onMouseMove);
       map.events.unregister('mouseout',  null, this.onMouseOut);
     }

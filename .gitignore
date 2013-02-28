@@ -4,6 +4,7 @@ components
 _SpecRunner.html
 
 views/shared/javascripts/payloads
+views/shared/css/payloads
 
 tests/jasmine/fixtures
 tests/jasmine/helpers
