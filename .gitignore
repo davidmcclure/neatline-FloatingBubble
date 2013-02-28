@@ -2,6 +2,7 @@
 node_modules
 components
 _SpecRunner.html
+.grunt
 
 views/shared/javascripts/payloads
 views/shared/css/payloads
