@@ -12,6 +12,7 @@
 
 module.exports = function(grunt) {
 
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
@@ -20,7 +21,10 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
-    uglify: {
+    concat: {
+      options: {
+        separator: ';'
+      },
       bubble: {
         src: './views/shared/javascripts/FloatingBubble/*.js',
         dest: './views/shared/javascripts/payloads/FloatingBubble.js',
@@ -28,8 +32,19 @@ module.exports = function(grunt) {
       }
     },
 
+    uglify: {
+      options: {
+        separator: ';'
+      },
+      bubble: {
+        src: '<%= concat.bubble.src %>',
+        dest: '<%= concat.bubble.dest %>',
+        separator: ';'
+      }
+    },
+
     watch: {
-      files: ['<%= min.bubble.src %>'],
+      files: ['<%= uglify.bubble.src %>'],
       tasks: ['uglify']
     },
 
