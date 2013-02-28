@@ -79,7 +79,7 @@ Neatline.module('Presenter.FloatingBubble', function(
         this.onMouseOut  = _.bind(this.hide, this);
 
         // Bind to mousemove and mouseout.
-        var map = Neatline.request('map:getMap');
+        var map = Neatline.request('MAP:getMap');
         map.events.register('mousemove',  null, this.onMouseMove);
         map.events.register('mouseout',   null, this.onMouseOut);
 

@@ -18,7 +18,8 @@ class NeatlineFloatingBubblePlugin extends Omeka_Plugin_AbstractPlugin
 
     protected $_hooks = array(
         'neatline_public_js',
-        'neatline_editor_js'
+        'neatline_editor_js',
+        'neatline_templates'
     );
 
 
@@ -32,8 +33,7 @@ class NeatlineFloatingBubblePlugin extends Omeka_Plugin_AbstractPlugin
      */
     public function hookNeatlinePublicJs()
     {
-        // TODO
-        // queue_js_file('payloads/FloatingBubble');
+        queue_js_file('payloads/FloatingBubble');
     }
 
 
@@ -42,8 +42,16 @@ class NeatlineFloatingBubblePlugin extends Omeka_Plugin_AbstractPlugin
      */
     public function hookNeatlineEditorJs()
     {
-        // TODO
-        // queue_js_file('payloads/FloatingBubble');
+        queue_js_file('payloads/FloatingBubble');
+    }
+
+
+    /**
+     * Include bubble template.
+     */
+    public function hookNeatlineTemplates()
+    {
+        echo common('_floating_bubble');
     }
 
 
